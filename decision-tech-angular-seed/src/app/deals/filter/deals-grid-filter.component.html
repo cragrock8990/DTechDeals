@@ -1,0 +1,32 @@
+<div>
+  <input [(ngModel)]="broadbandFilter.value" (ngModelChange)="applyFilter()" type="checkbox" />
+  <label>{{BROADBAND}}</label>
+</div>
+
+<div>
+  <input [(ngModel)]="tvFilter.value" (ngModelChange)="applyFilter()" type="checkbox" />
+  <label>{{TV}}</label>
+</div>
+
+<div>
+  <input [(ngModel)]="mobileFilter.value" (ngModelChange)="applyFilter()" type="checkbox" />
+  <label>{{MOBILE}}</label>
+</div>
+
+<div>
+  <label>{{SPEED}}</label>
+  <select [(ngModel)]="broadbandSpeedFilter.value" (ngModelChange)="applyFilter()">
+    <option *ngFor="let speed of internetSpeed" [value]="speed">
+      {{speed}}
+    </option>
+  </select>
+</div>
+
+<div *ngIf="mobileFilter.value">
+  <label>{{MOBILE_DATA}}</label>
+  <select [(ngModel)]="mobileDataAllowanceFilter.value" (ngModelChange)="applyFilter()">
+    <option *ngFor="let dataAllowance of mobileInternetDataAllowance" [value]="dataAllowance">
+      {{dataAllowance}}
+    </option>
+  </select>
+</div>

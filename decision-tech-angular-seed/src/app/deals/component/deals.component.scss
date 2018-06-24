@@ -1,0 +1,39 @@
+.contentBody {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  width: 100%;
+}
+
+.sidebar {
+  width: 250px;
+  position: inherit;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #dedede;
+  overflow-x: hidden;
+  padding-top: 10px;
+}
+
+.content {
+  width: 100%;
+  background-color: white;
+  display: flex;
+  overflow: auto;
+}
+
+@media screen and (max-width: 960px) {
+  .sidebar {
+    height: 100%;
+    position: fixed;
+    width: 250px;
+    background-color: #333;
+    color: white;
+    padding-top: 60px;
+
+    &--closed {
+      width: 0px;
+    }
+  }
+}

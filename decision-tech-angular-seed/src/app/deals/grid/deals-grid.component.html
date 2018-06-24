@@ -1,0 +1,67 @@
+<p-table [value]="deals">
+  <ng-template pTemplate="header">
+    <tr class="dt-grid-header">
+      <th>About</th>
+      <th>Contract length</th>
+      <th>Speed/Usage</th>
+      <th>Offer</th>
+      <th>TV</th>
+      <th>Mobile</th>
+      <th>Cost</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-deal>
+    <tr class="dt-grid-row">
+
+      <td>{{deal.title}}</td>
+
+      <td>{{deal.contractLength}} {{MONTHS}}</td>
+
+      <td>
+        <div>{{deal.speed.label}} MB</div>
+        <div>{{deal.usage.label}}</div>
+      </td>
+
+      <td>
+        <img src="{{deal.offer.smallLogo}}" alt="{{deal.offer.title}}" />
+      </td>
+
+      <td>
+        <div *ngIf="!!deal.popularChannels">
+          <div *ngFor="let channel of deal.popularChannels">
+            <img src="{{channel.logo}}" alt="{{channel.name}}" />
+          </div>
+        </div>
+        <div *ngIf="deal.popularChannels?.length==0">
+          N/A
+        </div>
+      </td>
+
+      <td>
+        <div class="mobile-info" *ngIf="!!deal.mobile">
+          <span [style.order]="deal.mobile.minutes.sortValue">
+            <label>Minutes: </label>
+            <div>{{deal.mobile.minutes.label}}</div>
+          </span>
+          <span [style.order]="deal.mobile.data.sortValue">
+            <label>Data: </label>
+            <div>{{deal.mobile.data.label}}</div>
+          </span>
+          <span [style.order]="deal.mobile.texts.sortValue">
+            <label>Texts: </label>
+            <div>{{deal.mobile.texts.label}}</div>
+          </span>
+          <span [style.order]="deal.mobile.connectionType.sortValue">
+            <label>Connection: </label>
+            <div>{{deal.mobile.connectionType.label}}</div>
+          </span>
+        </div>
+        <div *ngIf="!deal.mobile">
+          N/A
+        </div>
+      </td>
+
+      <td>{{deal.prices[0].totalContractCost | currency: 'GBP'}}
+    </tr>
+  </ng-template>
+</p-table>
