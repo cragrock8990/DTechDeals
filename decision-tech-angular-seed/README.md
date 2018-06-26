@@ -1,9 +1,9 @@
 # DecisionTechAngularSeed
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.3.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.0.
 
 ## Version
-* Angular 4.3.1
+* Angular 6.0.0
 
 ## Setup
 
